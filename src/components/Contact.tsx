@@ -29,7 +29,7 @@ export const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Send message to Web3Forms free email service (forwards to sampathkumarsampath2002@gmail.com)
+      // Send message to Web3Forms free email service (forwards to your email)
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_FREE_WEB3FORMS_ACCESS_KEY', // Place your Web3Forms access key here
+          access_key: '8fe52823-5811-4e20-9771-fba28849dbfb',
           from_name: formState.name,
           email: formState.email,
           subject: `New Project Inquiry from ${formState.name} (${formState.service})`,
@@ -51,6 +51,7 @@ ${formState.message}
           `,
         }),
       });
+
 
       if (response.ok) {
         setSubmitted(true);
