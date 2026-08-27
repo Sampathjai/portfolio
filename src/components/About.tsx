@@ -44,7 +44,7 @@ export const About: React.FC = () => {
               
               <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-card bg-slate-900">
                 <img
-                  src="/sampath-profile.jpg"
+                  src="./sampath-profile.jpg"
                   alt="Sampath Kumar - Senior Fullstack & 3D Web Developer"
                   className="w-full h-[460px] object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
@@ -137,13 +137,14 @@ export const About: React.FC = () => {
             {/* Action Bar */}
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <a
-                href="/Sampath_Resume.pdf"
+                href="./Sampath_Resume.pdf"
                 download
                 className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm flex items-center space-x-2 transition-transform active:scale-95 shadow-lg shadow-cyan-500/20 cursor-pointer"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Professional CV</span>
               </a>
+
 
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}

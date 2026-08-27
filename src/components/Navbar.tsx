@@ -87,13 +87,14 @@ export const Navbar: React.FC<NavbarProps> = () => {
         {/* Header Action Buttons */}
         <div className="hidden lg:flex items-center space-x-3">
           <a
-            href="/Sampath_Resume.pdf"
+            href="./Sampath_Resume.pdf"
             download
-            className="flex items-center space-x-2 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-lg border border-slate-700/50 transition-all shadow-sm"
+            className="flex items-center space-x-2 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-lg border border-slate-700/50 transition-all shadow-sm cursor-pointer"
           >
             <Download className="w-3.5 h-3.5 text-cyan-400" />
             <span>Resume</span>
           </a>
+
 
           <a
             href="#contact"
