@@ -26,8 +26,9 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-slate-400 text-xs max-w-sm leading-relaxed">
-              Senior 3D & Fullstack Architect building custom CRMs, smart inventory platforms, and WebGL graphics.
+              Senior Web & 3D Interactive Developer building custom CRMs, smart inventory platforms, and WebGL graphics.
             </p>
+
           </div>
 
           {/* Quick Links */}

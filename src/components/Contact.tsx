@@ -231,7 +231,8 @@ export const Contact: React.FC = () => {
                         <option value="custom-crm">Custom Business CRM System</option>
                         <option value="inventory-mgmt">Smart Inventory & Warehouse Software</option>
                         <option value="3d-web">3D & Interactive Web Experience</option>
-                        <option value="frontend-arch">Fullstack React Application</option>
+                        <option value="frontend-arch">Web & Frontend Architecture</option>
+
                       </select>
                     </div>
 

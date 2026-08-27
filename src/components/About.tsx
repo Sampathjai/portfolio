@@ -45,7 +45,7 @@ export const About: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-card bg-slate-900">
                 <img
                   src="./sampath-profile.jpg"
-                  alt="Sampath Kumar - Senior Fullstack & 3D Web Developer"
+                  alt="Sampath Kumar - Senior Web & 3D Interactive Developer"
                   className="w-full h-[460px] object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
                 
@@ -85,7 +85,7 @@ export const About: React.FC = () => {
           >
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-white">
-                Fullstack Engineering: Custom CRMs, Stock Control, & 3D Web Architecture
+                Web & 3D Engineering: Custom CRMs, Stock Control, & Interactive Architecture
               </h3>
               <p className="text-slate-300 leading-relaxed font-light">
                 {PERSONAL_INFO.bio}
@@ -94,6 +94,7 @@ export const About: React.FC = () => {
                 Whether you need a full enterprise CRM tailored to your sales process, a multi-warehouse inventory management dashboard with automated stock alerts, or a 60FPS 3D interactive web portal, I deliver clean, typed, and scalable code.
               </p>
             </div>
+
 
             {/* Quick Key Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">

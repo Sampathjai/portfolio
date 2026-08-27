@@ -33,8 +33,9 @@ export const Services: React.FC = () => {
         >
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-400">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Fullstack & 3D Engineering</span>
+            <span>Web & 3D Engineering</span>
           </div>
+
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
             Custom <span className="text-gradient">Business Software & Services</span>
           </h2>

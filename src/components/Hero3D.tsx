@@ -44,7 +44,7 @@ class ThreeErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
               <Terminal className="w-5 h-5" />
             </div>
             <h4 className="text-sm font-bold text-white">Interactive Developer Workstation</h4>
-            <p className="text-xs text-slate-400 font-mono">Sampath Kumar J • 3D & Fullstack Architect</p>
+            <p className="text-xs text-slate-400 font-mono">Sampath Kumar J • Senior Web & 3D Interactive Developer</p>
           </div>
         </div>
       );
@@ -63,8 +63,9 @@ const CODE_LINES = [
   "import { CustomCRM } from './services/OmniCRM';",
   "import { StockSync } from './services/Inventory';",
   "",
-  "// Sampath Kumar J - Senior Fullstack & 3D Architect",
+  "// Sampath Kumar J - Senior Web & 3D Interactive Developer",
   "class DeveloperPortfolio {",
+
   "  public async initializeSystem() {",
   "    const crm = new CustomCRM({ status: 'ACTIVE' });",
   "    const inventory = new StockSync({ multiWarehouse: true });",
@@ -465,10 +466,11 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
                   <Database className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white">Fullstack Architecture</h3>
+                  <h3 className="text-sm font-semibold text-white">Web & 3D Architecture</h3>
                   <p className="text-xs text-slate-400 font-mono">CRMs • Inventory • Live Coding 3D</p>
                 </div>
               </div>
+
 
               <div className="space-y-3.5 text-xs font-mono text-slate-300">
                 <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-lg border border-slate-800">
