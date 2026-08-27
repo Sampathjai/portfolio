@@ -29,7 +29,6 @@ export const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Send message to Web3Forms free email service (forwards to your email)
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -52,11 +51,9 @@ ${formState.message}
         }),
       });
 
-
       if (response.ok) {
         setSubmitted(true);
       } else {
-        // Fallback success state
         setSubmitted(true);
       }
     } catch (err) {
@@ -67,7 +64,6 @@ ${formState.message}
     }
   };
 
-  // WhatsApp Instant Submission Helper
   const handleWhatsAppSubmit = () => {
     const text = encodeURIComponent(
       `*New Project Inquiry*\n` +
@@ -95,49 +91,49 @@ ${formState.message}
   ];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#090a0f]">
+    <section id="contact" className="py-20 relative overflow-hidden bg-[#090a0f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Title */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+          className="text-center max-w-3xl mx-auto mb-14 space-y-3"
         >
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-400">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-400">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Initiate Project</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
             Let's Build Your <span className="text-gradient">CRM, Inventory & 3D Web</span>
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
+          <p className="text-slate-300 text-base sm:text-lg">
             Have a custom software requirement, CRM project, or 3D web application in mind? Send a message below.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Left Column: Direct Contact Info & Fast Links */}
+          {/* Left Column: Direct Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-6"
           >
-            <div className="glass-card p-8 rounded-3xl border border-white/10 space-y-8">
+            <div className="glass-card p-8 rounded-2xl border border-white/10 space-y-6">
               <h3 className="text-2xl font-bold text-white">Contact Information</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* Email Direct */}
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
                   className="flex items-start space-x-4 group p-3 rounded-xl hover:bg-white/5 transition-colors"
                 >
-                  <div className="p-3 bg-blue-500/10 rounded-xl border border-blue-500/20 text-blue-400 group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-blue-500/10 rounded-xl border border-blue-500/20 text-cyan-400 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -155,7 +151,7 @@ ${formState.message}
                   rel="noopener noreferrer"
                   className="flex items-start space-x-4 group p-3 rounded-xl hover:bg-white/5 transition-colors"
                 >
-                  <div className="p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400 group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400 group-hover:scale-105 transition-transform">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
@@ -187,7 +183,7 @@ ${formState.message}
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                   <span>Response Time Guarantee</span>
                 </div>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-300">
                   Replies sent within 24 hours to {PERSONAL_INFO.email}.
                 </p>
               </div>
@@ -195,7 +191,7 @@ ${formState.message}
             </div>
           </motion.div>
 
-          {/* Right Column: Validated Interactive Form */}
+          {/* Right Column: Form (Fixes Issue 8 - Aligned Currency Selector) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,15 +199,15 @@ ${formState.message}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <div className="glass-card p-8 sm:p-10 rounded-3xl border border-white/10">
+            <div className="glass-card p-8 sm:p-10 rounded-2xl border border-white/10">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold text-white">Inquiry Sent Successfully!</h3>
-                  <p className="text-slate-400 text-sm max-w-md mx-auto">
-                    Thank you, {formState.name || 'friend'}. Your project details have been dispatched. Sampath will review your requirements and respond to your email.
+                  <p className="text-slate-300 text-sm max-w-md mx-auto">
+                    Thank you, {formState.name || 'friend'}. Your project details have been dispatched to {PERSONAL_INFO.email}.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -221,14 +217,15 @@ ${formState.message}
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Name Field */}
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-slate-300 uppercase font-mono">
+                    <div className="space-y-1.5">
+                      <label htmlFor="name-input" className="text-xs font-semibold text-slate-300 uppercase font-mono">
                         Your Name *
                       </label>
                       <input
+                        id="name-input"
                         type="text"
                         required
                         value={formState.name}
@@ -239,11 +236,12 @@ ${formState.message}
                     </div>
 
                     {/* Email Field */}
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-slate-300 uppercase font-mono">
+                    <div className="space-y-1.5">
+                      <label htmlFor="email-input" className="text-xs font-semibold text-slate-300 uppercase font-mono">
                         Your Email *
                       </label>
                       <input
+                        id="email-input"
                         type="email"
                         required
                         value={formState.email}
@@ -254,13 +252,14 @@ ${formState.message}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Service Needed */}
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-slate-300 uppercase font-mono">
+                    <div className="space-y-1.5">
+                      <label htmlFor="service-select" className="text-xs font-semibold text-slate-300 uppercase font-mono">
                         Service Required
                       </label>
                       <select
+                        id="service-select"
                         value={formState.service}
                         onChange={(e) => setFormState({ ...formState, service: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
@@ -272,14 +271,14 @@ ${formState.message}
                       </select>
                     </div>
 
-                    {/* Budget Range with Currency Toggle */}
-                    <div className="space-y-2">
+                    {/* Budget Field - Fixes Issue 8 (Aligned Currency Container) */}
+                    <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <label className="text-xs font-semibold text-slate-300 uppercase font-mono">
+                        <label htmlFor="budget-select" className="text-xs font-semibold text-slate-300 uppercase font-mono">
                           Estimated Budget
                         </label>
 
-                        <div className="inline-flex p-0.5 rounded-lg bg-slate-950 border border-slate-800 text-[11px] font-mono">
+                        <div className="inline-flex p-0.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono">
                           <button
                             type="button"
                             onClick={() => handleCurrencyToggle('USD')}
@@ -308,6 +307,7 @@ ${formState.message}
                       </div>
 
                       <select
+                        id="budget-select"
                         value={formState.budget}
                         onChange={(e) => setFormState({ ...formState, budget: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors font-mono"
@@ -322,11 +322,12 @@ ${formState.message}
                   </div>
 
                   {/* Message Field */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold text-slate-300 uppercase font-mono">
+                  <div className="space-y-1.5">
+                    <label htmlFor="message-textarea" className="text-xs font-semibold text-slate-300 uppercase font-mono">
                       Project Scope & Requirements *
                     </label>
                     <textarea
+                      id="message-textarea"
                       required
                       rows={4}
                       value={formState.message}
@@ -336,12 +337,12 @@ ${formState.message}
                     />
                   </div>
 
-                  {/* Submit Action Buttons */}
+                  {/* Submit Action Buttons (Fixes Issue 4 & 10) */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 flex items-center justify-center space-x-2 transition-all active:scale-[0.99] disabled:opacity-50 cursor-pointer"
+                      className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 flex items-center justify-center space-x-2 transition-all active:scale-[0.99] disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Sending Inquiry...</span>
@@ -356,8 +357,7 @@ ${formState.message}
                     <button
                       type="button"
                       onClick={handleWhatsAppSubmit}
-                      className="py-4 px-6 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-bold text-sm flex items-center justify-center space-x-2 transition-all active:scale-[0.99] cursor-pointer"
-                      title="Send instant message via WhatsApp"
+                      className="py-3.5 px-6 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-bold text-sm flex items-center justify-center space-x-2 transition-all active:scale-[0.99] cursor-pointer"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Send via WhatsApp</span>

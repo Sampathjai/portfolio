@@ -11,7 +11,7 @@ interface Hero3DProps {
 }
 
 // -----------------------------------------------------------------------------
-// REACT ERROR BOUNDARY FOR 3D CANVAS (Prevents blank page if WebGL fails)
+// REACT ERROR BOUNDARY FOR 3D CANVAS
 // -----------------------------------------------------------------------------
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -43,7 +43,7 @@ class ThreeErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
             <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center mx-auto">
               <Terminal className="w-5 h-5" />
             </div>
-            <h4 className="text-sm font-bold text-white">Interactive Developer Workstation</h4>
+            <h2 className="text-sm font-bold text-white">Interactive Developer Workstation</h2>
             <p className="text-xs text-slate-400 font-mono">Sampath Kumar J • Senior Web & 3D Interactive Developer</p>
           </div>
         </div>
@@ -55,7 +55,7 @@ class ThreeErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
 }
 
 // -----------------------------------------------------------------------------
-// LIVE ANIMATED CODING MONITOR SCREEN (Synchronous CanvasTexture)
+// LIVE ANIMATED CODING MONITOR SCREEN
 // -----------------------------------------------------------------------------
 
 const CODE_LINES = [
@@ -65,7 +65,6 @@ const CODE_LINES = [
   "",
   "// Sampath Kumar J - Senior Web & 3D Interactive Developer",
   "class DeveloperPortfolio {",
-
   "  public async initializeSystem() {",
   "    const crm = new CustomCRM({ status: 'ACTIVE' });",
   "    const inventory = new StockSync({ multiWarehouse: true });",
@@ -83,7 +82,6 @@ const CODE_LINES = [
 const LiveCodeMonitorScreen: React.FC<{ reducedMotion?: boolean }> = ({ reducedMotion }) => {
   const stateRef = useRef({ lineIdx: 0, charIdx: 0, lastTime: 0 });
 
-  // Synchronous canvas & texture creation with useMemo (Guarantees zero null texture render)
   const { canvas, texture } = useMemo(() => {
     const c = document.createElement('canvas');
     c.width = 1024;
@@ -188,7 +186,7 @@ const LiveCodeMonitorScreen: React.FC<{ reducedMotion?: boolean }> = ({ reducedM
 };
 
 // -----------------------------------------------------------------------------
-// 3D DESKTOP WORKSTATION PROCEDURAL SCENE
+// 3D DESKTOP WORKSTATION SCENE
 // -----------------------------------------------------------------------------
 
 const DeskSurface: React.FC = () => {
@@ -333,7 +331,7 @@ const CameraRig: React.FC<{ reducedMotion?: boolean }> = ({ reducedMotion }) => 
 };
 
 // -----------------------------------------------------------------------------
-// MAIN HERO SECTION COMPONENT (PROTECTED BY THREE ERROR BOUNDARY)
+// MAIN HERO SECTION COMPONENT
 // -----------------------------------------------------------------------------
 
 export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
@@ -341,9 +339,10 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
   const heroY = useTransform(scrollY, [0, 400], [0, 60]);
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
-      {/* 3D Desktop Monitor Live Code Canvas Background */}
-      <div className="absolute inset-0 z-0 opacity-90 pointer-events-auto">
+    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-[#090a0f]">
+      
+      {/* 3D Background - Fixes Issue 11 (De-clutter opacity to 45%) */}
+      <div className="absolute inset-0 z-0 opacity-45 pointer-events-auto">
         <ThreeErrorBoundary>
           <Canvas camera={{ position: [0, 0.6, 5.2], fov: 48 }}>
             <ambientLight intensity={0.8} />
@@ -367,11 +366,10 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
         </ThreeErrorBoundary>
       </div>
 
-      {/* Background Glow Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
+      {/* Dark Vignette Overlay for Text Separation (Fixes Issue 11) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-transparent to-[#090a0f]/80 pointer-events-none" />
 
-      {/* Optimized Hero Content Overlay */}
+      {/* Main Hero Content */}
       <motion.div style={{ y: heroY }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -388,21 +386,21 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
               <span>{PERSONAL_INFO.status}</span>
             </div>
 
-            {/* Main Punchy Headline */}
+            {/* Main Headline - High Contrast */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
               Building <span className="text-gradient">3D Web Apps</span>, Custom CRMs & Inventory Systems.
             </h1>
 
-            {/* Clear Sub-headline / Value proposition */}
+            {/* Sub-headline */}
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-              Hi, I'm <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong>. I engineer high-performing 3D WebGL experiences and custom enterprise software—including tailored CRMs and real-time inventory management platforms for fast-growing businesses.
+              Hi, I'm <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong>. I engineer high-performing 3D WebGL experiences and custom software—including tailored CRMs and real-time inventory management platforms.
             </p>
 
-            {/* Call To Action Buttons */}
+            {/* Primary & Secondary Action Buttons (Fixes Issue 4 & 10) */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href="#projects"
-                className="group px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 flex items-center space-x-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="group px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 flex items-center space-x-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Explore Projects & CRMs</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -410,23 +408,23 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
 
               <a
                 href="#contact"
-                className="px-7 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 font-bold text-sm backdrop-blur-md flex items-center space-x-2 transition-all hover:border-slate-500 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 font-semibold text-sm backdrop-blur-md flex items-center space-x-2 transition-all hover:border-slate-500 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 text-cyan-400" />
-                <span>Let's Discuss Your Project</span>
+                <span>Discuss Your Project</span>
               </a>
             </div>
 
-            {/* Core Capability Badges */}
-            <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-slate-400 text-xs font-mono">
-              <div className="flex items-center space-x-4">
-                <span className="text-slate-500 uppercase tracking-wider flex items-center gap-1">
+            {/* Core Badges */}
+            <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-slate-300 text-xs font-mono">
+              <div className="flex items-center space-x-3">
+                <span className="text-slate-400 uppercase tracking-wider flex items-center gap-1">
                   <Cpu className="w-3.5 h-3.5 text-cyan-400" /> Core Tech:
                 </span>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-2.5 py-1 bg-slate-800/80 rounded border border-slate-700 text-cyan-300 font-semibold">Custom Business CRMs</span>
-                  <span className="px-2.5 py-1 bg-slate-800/80 rounded border border-slate-700 text-emerald-300 font-semibold">Inventory Systems</span>
-                  <span className="px-2.5 py-1 bg-slate-800/80 rounded border border-slate-700 text-blue-300 font-semibold">Live Coding 3D Display</span>
+                  <span className="px-2.5 py-1 bg-slate-900/90 rounded-lg border border-slate-800 text-cyan-300 font-semibold">Custom Business CRMs</span>
+                  <span className="px-2.5 py-1 bg-slate-900/90 rounded-lg border border-slate-800 text-emerald-300 font-semibold">Inventory Systems</span>
+                  <span className="px-2.5 py-1 bg-slate-900/90 rounded-lg border border-slate-800 text-blue-300 font-semibold">Live Coding 3D Display</span>
                 </div>
               </div>
 
@@ -453,7 +451,7 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
             </div>
           </motion.div>
 
-          {/* Right Floating Live Terminal Status Card */}
+          {/* Right Status Card - Fixes Issue 7 (Heading Level H2) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -466,28 +464,28 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
                   <Database className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white">Web & 3D Architecture</h3>
+                  {/* Corrected to H2 to preserve document heading hierarchy (Fixes Issue 7) */}
+                  <h2 className="text-sm font-semibold text-white">Web & 3D Architecture</h2>
                   <p className="text-xs text-slate-400 font-mono">CRMs • Inventory • Live Coding 3D</p>
                 </div>
               </div>
 
-
-              <div className="space-y-3.5 text-xs font-mono text-slate-300">
-                <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                  <span className="text-slate-400">Custom Business CRM</span>
+              <div className="space-y-3 text-xs font-mono text-slate-300">
+                <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+                  <span className="text-slate-300">Custom Business CRM</span>
                   <span className="text-emerald-400 font-bold flex items-center gap-1">
                     <CheckCircle className="w-3.5 h-3.5" /> Active
                   </span>
                 </div>
-                <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                  <span className="text-slate-400">Inventory & Warehouse</span>
+                <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+                  <span className="text-slate-300">Inventory & Warehouse</span>
                   <span className="text-cyan-400 font-bold flex items-center gap-1">
                     <CheckCircle className="w-3.5 h-3.5" /> Real-time
                   </span>
                 </div>
-                <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                  <span className="text-slate-400">3D Live Code Canvas</span>
-                  <span className="text-purple-400 font-bold flex items-center gap-1">
+                <div className="flex justify-between items-center bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+                  <span className="text-slate-300">3D Live Code Canvas</span>
+                  <span className="text-cyan-400 font-bold flex items-center gap-1">
                     <Code className="w-3.5 h-3.5" /> 60FPS WebGL
                   </span>
                 </div>
