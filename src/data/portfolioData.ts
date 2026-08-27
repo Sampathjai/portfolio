@@ -6,7 +6,8 @@ export const PERSONAL_INFO = {
   tagline: "Building Immersive 3D WebGL Experiences, Custom Business CRMs & Real-Time Inventory Management Systems.",
   bio: "I'm a senior Web & Frontend Developer who helps businesses grow by building high-converting 3D web experiences alongside powerful custom software solutions—including tailored CRMs, real-time inventory management platforms, and interactive React web applications.",
   location: "India (Available Worldwide for Remote Contracts)",
-  email: "sampathkumarsampath2002@gmail.com",
+  email: "sampathkumarjofficial@gmail.com",
+
   phone: "+91 9361091456",
   whatsapp: "https://wa.me/919361091456",
   linkedin: "https://www.linkedin.com/in/sampath-kumar1/",
