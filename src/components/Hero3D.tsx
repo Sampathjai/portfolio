@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useMemo, Component, ReactNode } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Box, Cylinder, Plane } from '@react-three/drei';
 import * as THREE from 'three';
@@ -11,7 +11,51 @@ interface Hero3DProps {
 }
 
 // -----------------------------------------------------------------------------
-// LIVE ANIMATED CODING MONITOR SCREEN (HTML5 CanvasTexture inside Three.js)
+// REACT ERROR BOUNDARY FOR 3D CANVAS (Prevents blank page if WebGL fails)
+// -----------------------------------------------------------------------------
+interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+class ThreeErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  public state: ErrorBoundaryState = {
+    hasError: false
+  };
+
+  public static getDerivedStateFromError(): ErrorBoundaryState {
+    return { hasError: true };
+  }
+
+  public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.warn('3D Canvas Exception Caught:', error, errorInfo);
+  }
+
+  public render() {
+    if (this.state.hasError) {
+      return this.props.fallback || (
+        <div className="w-full h-full flex items-center justify-center bg-[#090a0f] p-8 text-center">
+          <div className="p-6 rounded-2xl glass-card border border-white/10 max-w-sm space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center mx-auto">
+              <Terminal className="w-5 h-5" />
+            </div>
+            <h4 className="text-sm font-bold text-white">Interactive Developer Workstation</h4>
+            <p className="text-xs text-slate-400 font-mono">Sampath Kumar J • 3D & Fullstack Architect</p>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// LIVE ANIMATED CODING MONITOR SCREEN (Synchronous CanvasTexture)
 // -----------------------------------------------------------------------------
 
 const CODE_LINES = [
@@ -36,24 +80,22 @@ const CODE_LINES = [
 ];
 
 const LiveCodeMonitorScreen: React.FC<{ reducedMotion?: boolean }> = ({ reducedMotion }) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const textureRef = useRef<THREE.CanvasTexture | null>(null);
   const stateRef = useRef({ lineIdx: 0, charIdx: 0, lastTime: 0 });
 
-  useEffect(() => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 1024;
-    canvas.height = 576;
-    canvasRef.current = canvas;
-    
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.minFilter = THREE.LinearFilter;
-    texture.magFilter = THREE.LinearFilter;
-    textureRef.current = texture;
+  // Synchronous canvas & texture creation with useMemo (Guarantees zero null texture render)
+  const { canvas, texture } = useMemo(() => {
+    const c = document.createElement('canvas');
+    c.width = 1024;
+    c.height = 576;
+
+    const t = new THREE.CanvasTexture(c);
+    t.minFilter = THREE.LinearFilter;
+    t.magFilter = THREE.LinearFilter;
+    return { canvas: c, texture: t };
   }, []);
 
   useFrame((state) => {
-    if (!canvasRef.current || !textureRef.current) return;
+    if (!canvas || !texture) return;
 
     const now = state.clock.getElapsedTime();
     if (!reducedMotion && now - stateRef.current.lastTime > 0.04) {
@@ -70,7 +112,7 @@ const LiveCodeMonitorScreen: React.FC<{ reducedMotion?: boolean }> = ({ reducedM
       }
     }
 
-    const ctx = canvasRef.current.getContext('2d');
+    const ctx = canvas.getContext('2d');
     if (ctx) {
       ctx.fillStyle = '#0d1117';
       ctx.fillRect(0, 0, 1024, 576);
@@ -133,17 +175,13 @@ const LiveCodeMonitorScreen: React.FC<{ reducedMotion?: boolean }> = ({ reducedM
         ctx.fillRect(240 + textWidth, currentY - 14, 8, 18);
       }
 
-      textureRef.current.needsUpdate = true;
+      texture.needsUpdate = true;
     }
   });
 
   return (
     <Plane args={[4.2, 2.3]} position={[0, 0.35, 0.06]}>
-      {textureRef.current ? (
-        <meshBasicMaterial map={textureRef.current} />
-      ) : (
-        <meshStandardMaterial color="#0d1117" />
-      )}
+      <meshBasicMaterial map={texture} />
     </Plane>
   );
 };
@@ -294,7 +332,7 @@ const CameraRig: React.FC<{ reducedMotion?: boolean }> = ({ reducedMotion }) => 
 };
 
 // -----------------------------------------------------------------------------
-// MAIN HERO SECTION COMPONENT (OPTIMIZED CONTENT & SCROLL PARALLAX)
+// MAIN HERO SECTION COMPONENT (PROTECTED BY THREE ERROR BOUNDARY)
 // -----------------------------------------------------------------------------
 
 export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
@@ -305,25 +343,27 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
       {/* 3D Desktop Monitor Live Code Canvas Background */}
       <div className="absolute inset-0 z-0 opacity-90 pointer-events-auto">
-        <Canvas camera={{ position: [0, 0.6, 5.2], fov: 48 }}>
-          <ambientLight intensity={0.8} />
-          <directionalLight position={[10, 12, 6]} intensity={1.5} color="#60a5fa" />
-          <pointLight position={[-8, -5, -5]} intensity={1.2} color="#a78bfa" />
-          <pointLight position={[3, 4, 3]} intensity={1} color="#06b6d4" />
-          
-          <Float speed={reducedMotion ? 0 : 0.8} rotationIntensity={reducedMotion ? 0 : 0.15} floatIntensity={reducedMotion ? 0 : 0.2}>
-            <group position={[0, 0.1, 0]} rotation={[0.08, -0.05, 0]}>
-              <DeskSurface />
-              <DeveloperMonitor reducedMotion={reducedMotion} />
-              <DeveloperLaptop />
-              <KeyboardAndMouse />
-              <DeskLamp />
-            </group>
-          </Float>
-          
-          <CameraRig reducedMotion={reducedMotion} />
-          <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 3} />
-        </Canvas>
+        <ThreeErrorBoundary>
+          <Canvas camera={{ position: [0, 0.6, 5.2], fov: 48 }}>
+            <ambientLight intensity={0.8} />
+            <directionalLight position={[10, 12, 6]} intensity={1.5} color="#60a5fa" />
+            <pointLight position={[-8, -5, -5]} intensity={1.2} color="#a78bfa" />
+            <pointLight position={[3, 4, 3]} intensity={1} color="#06b6d4" />
+            
+            <Float speed={reducedMotion ? 0 : 0.8} rotationIntensity={reducedMotion ? 0 : 0.15} floatIntensity={reducedMotion ? 0 : 0.2}>
+              <group position={[0, 0.1, 0]} rotation={[0.08, -0.05, 0]}>
+                <DeskSurface />
+                <DeveloperMonitor reducedMotion={reducedMotion} />
+                <DeveloperLaptop />
+                <KeyboardAndMouse />
+                <DeskLamp />
+              </group>
+            </Float>
+            
+            <CameraRig reducedMotion={reducedMotion} />
+            <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 3} />
+          </Canvas>
+        </ThreeErrorBoundary>
       </div>
 
       {/* Background Glow Gradients */}
