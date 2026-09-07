@@ -53,8 +53,10 @@ export const PROJECTS: Project[] = [
     longDescription: "Developed a specialized engineering web platform for CAD designers and architects. Features structured blueprint categorization, file resource downloads, technical spec sheets, and responsive drafting tools UI.",
     tags: ["React", "TypeScript", "CAD Tools", "Architectural UI", "Tailwind CSS"],
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
-    liveUrl: "cad-point-production.up.railway.app",
+    liveUrl: "https://cad-point-production.up.railway.app",
     githubUrl: "https://github.com/Sampathjai/CAD-POINT.git",
+
+
     featured: true,
     metrics: "Used by Engineering Designers"
   },
