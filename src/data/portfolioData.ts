@@ -39,8 +39,9 @@ export const PROJECTS: Project[] = [
     description: "Full-stack jewellery business ERP designed to simplify gold/silver inventory management, retail & wholesale GST billing, customer ledgers, and sales analytics.",
     longDescription: "Shankar Jewellery ERP is a comprehensive full-stack business management platform built for jewellery shops. It centralizes inventory management for Gold, Silver, and Diamond items with custom purity values, streamlines GST invoice generation for retail and wholesale transactions, manages customer ledgers, and tracks credit/payments with real-time financial reporting.",
     tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1000&auto=format&fit=crop",
+    image: "./shankar-jewellery-erp.jpg",
     liveUrl: "https://shankar-jewellery-erp.vercel.app/",
+
     githubUrl: "https://github.com/Sampathjai/Jewellery-ERP",
     featured: true,
     metrics: "Gold & Silver GST Billing ERP"
@@ -143,7 +144,21 @@ export const PROJECTS: Project[] = [
 
 export const SERVICES: Service[] = [
   {
+    id: "jewellery-erp",
+    iconName: "Database",
+    title: "Jewellery & Enterprise ERP Systems",
+    description: "Full-stack ERP solutions built for jewellery retail, wholesale, and business operations to centralize stock, billing, and accounting.",
+    features: [
+      "Gold, Silver & Diamond Itemization & Purity Tracking",
+      "GST Compliant Retail & Wholesale Invoicing",
+      "Customer Ledgers, Credit & Payment History",
+      "Real-time Daily Sales & Inventory Analytics"
+    ],
+    badge: "Enterprise ERP"
+  },
+  {
     id: "3d-web",
+
     iconName: "Box",
     title: "3D & Interactive Web Experiences",
     description: "Transform plain websites into memorable, immersive 3D digital experiences using Three.js and WebGL shaders.",

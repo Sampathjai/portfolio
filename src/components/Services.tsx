@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Layout, Sparkles, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Box, Layout, Sparkles, Zap, CheckCircle2, ArrowRight, Database } from 'lucide-react';
 import { SERVICES } from '../data/portfolioData';
 
 export const Services: React.FC = () => {
@@ -8,6 +8,8 @@ export const Services: React.FC = () => {
     switch (iconName) {
       case 'Layout':
         return <Layout className="w-6 h-6 text-emerald-400" />;
+      case 'Database':
+        return <Database className="w-6 h-6 text-blue-400" />;
       case 'Zap':
         return <Zap className="w-6 h-6 text-amber-400" />;
       case 'Box':
@@ -18,6 +20,7 @@ export const Services: React.FC = () => {
         return <Sparkles className="w-6 h-6 text-cyan-400" />;
     }
   };
+
 
   return (
     <section id="services" className="py-24 relative overflow-hidden bg-slate-950/40">
