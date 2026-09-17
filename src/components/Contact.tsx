@@ -264,10 +264,12 @@ ${formState.message}
                         onChange={(e) => setFormState({ ...formState, service: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
                       >
+                        <option value="jewellery-erp">Jewellery & Enterprise ERP System</option>
                         <option value="custom-crm">Custom Business CRM System</option>
                         <option value="inventory-mgmt">Smart Inventory & Warehouse Software</option>
                         <option value="3d-web">3D & Interactive Web Experience</option>
                         <option value="frontend-arch">Web & Frontend Architecture</option>
+
                       </select>
                     </div>
 
