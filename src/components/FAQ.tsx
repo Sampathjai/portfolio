@@ -165,3 +165,4 @@ export const FAQ: React.FC = () => {
     </section>
   );
 };
+
