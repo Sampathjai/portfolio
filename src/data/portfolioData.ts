@@ -33,8 +33,22 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "shankar-jewellery-erp",
+    title: "Shankar Jewellery ERP - Business Management System",
+    category: "fullstack",
+    description: "Full-stack jewellery business ERP designed to simplify gold/silver inventory management, retail & wholesale GST billing, customer ledgers, and sales analytics.",
+    longDescription: "Shankar Jewellery ERP is a comprehensive full-stack business management platform built for jewellery shops. It centralizes inventory management for Gold, Silver, and Diamond items with custom purity values, streamlines GST invoice generation for retail and wholesale transactions, manages customer ledgers, and tracks credit/payments with real-time financial reporting.",
+    tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
+    image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1000&auto=format&fit=crop",
+    liveUrl: "https://shankar-jewellery-erp.vercel.app/",
+    githubUrl: "https://github.com/Sampathjai/Jewellery-ERP",
+    featured: true,
+    metrics: "Gold & Silver GST Billing ERP"
+  },
+  {
     id: "travelroute-buddy",
     title: "TravelRoute Buddy - Trip & Route Planner",
+
     category: "frontend",
     description: "Interactive travel itinerary & route optimization web application featuring Mapbox GL maps, real-time location planning, and custom travel schedules.",
     longDescription: "Engineered an intuitive travel route planner allowing users to plot custom trips, visualize interactive map routes with Mapbox GL, customize daily itineraries, and export travel schedules across mobile and desktop devices.",
