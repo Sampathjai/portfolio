@@ -5,6 +5,7 @@ import { About } from './components/About';
 import { Projects } from './components/Projects';
 import { Services } from './components/Services';
 import { Process } from './components/Process';
+import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { AccessibilityToolbar } from './components/AccessibilityToolbar';
@@ -25,6 +26,7 @@ export function App() {
         <Projects />
         <Services />
         <Process />
+        <FAQ />
         <Contact />
       </main>
 

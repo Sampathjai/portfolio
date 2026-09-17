@@ -31,8 +31,10 @@ export const Navbar: React.FC<NavbarProps> = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Services', href: '#services' },
     { name: 'Process', href: '#process' },
+    { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
   ];
+
 
   return (
     <header
