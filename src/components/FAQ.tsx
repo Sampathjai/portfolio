@@ -9,44 +9,36 @@ interface FAQItem {
 
 const FAQ_ITEMS: FAQItem[] = [
   {
-    question: "What kind of software do you build?",
-    answer: "I build custom CRM platforms, enterprise ERP systems, jewellery business management software, smart inventory tools, high-performance websites, and modern full-stack web applications tailored specifically to business requirements."
+    question: "What does a custom CRM developer do?",
+    answer: "A custom CRM developer builds tailored software designed specifically around your business's sales pipeline, lead management workflow, customer tracking rules, role-based team permissions, and automated follow-ups without forced recurring per-user SaaS fees."
   },
   {
-    question: "Can you build a custom CRM for my business?",
-    answer: "Yes! I engineer custom CRM platforms designed around your specific sales pipeline, lead management workflow, customer tracking rules, role-based team permissions, and automated email or WhatsApp notification triggers without recurring per-user SaaS fees."
+    question: "Do you build custom ERP software?",
+    answer: "Yes, I develop custom ERP software to unify multi-department business operations, inventory control, purchase orders, customer ledgers, and financial GST accounting into a single secure web platform."
   },
   {
-    question: "Can you develop custom ERP software?",
-    answer: "Yes, I develop full-stack custom ERP software to unify multi-department business operations, inventory management, purchase orders, customer ledgers, and financial GST accounting into a single secure platform."
+    question: "Can you build business management software?",
+    answer: "Yes, I build custom business management software to automate daily operational routines, staff assignments, task tracking, client invoicing, and executive reporting dashboards."
   },
   {
-    question: "Can you build software for a jewellery business?",
-    answer: "Yes! I built Shankar Jewellery ERP—a comprehensive business management system featuring gold, silver, and diamond itemization with custom purity tracking (22K, 18K, 916), GST-compliant retail & wholesale billing, customer transaction ledgers, and real-time metal rate adjustments."
+    question: "Do you develop jewellery ERP software?",
+    answer: "Yes! I built Shankar Jewellery ERP—a full-stack business management system engineered for jewellery retail and wholesale shops featuring gold, silver, and diamond itemization, purity tracking (22K, 18K, 916), GST-compliant billing, customer ledgers, and payment scheme tracking."
   },
   {
-    question: "Can you build a business management system?",
-    answer: "Yes, I build business management systems that automate operational routines, staff assignments, task tracking, automated client invoicing, and executive reporting dashboards."
-  },
-  {
-    question: "Can you build a website for my business?",
-    answer: "Yes, I design and develop custom, fast, and SEO-optimized websites built with React, HTML5, Tailwind CSS, and TypeScript. All websites are mobile-responsive, structured with technical SEO, and optimized for high conversion."
+    question: "Do you provide full-stack web development?",
+    answer: "Yes, I provide full-stack web development using React.js, Next.js, TypeScript, Node.js, Express, PostgreSQL, Supabase, Prisma, and Tailwind CSS to build fast, scalable web applications."
   },
   {
     question: "Do you work with businesses in Tamil Nadu?",
-    answer: "Yes! I am based in Tamil Nadu, India, and work directly with businesses across Trichy (Tiruchirappalli), Chennai, Coimbatore, Madurai, Salem, and nearby regions. I provide remote consultations, system walkthroughs, and team onboarding."
+    answer: "Yes! I am a freelance full-stack developer based in Trichy (Tiruchirappalli), Tamil Nadu, providing software development services for businesses across Trichy, Chennai, Coimbatore, Madurai, Salem, and Tamil Nadu, as well as working with remote international clients."
   },
   {
-    question: "Do you work with clients outside India?",
-    answer: "Yes, I regularly collaborate with international businesses, startups, and agencies across the USA, UK, Canada, Australia, UAE, and Europe via async communication, GitHub, email, and scheduled video calls."
+    question: "Can you build a CRM for my business?",
+    answer: "Absolutely. I design custom CRM software built 100% around your specific sales process, lead sources, email/WhatsApp notification triggers, and client management needs."
   },
   {
-    question: "What technologies do you use?",
-    answer: "For frontend & web UI, I use React, TypeScript, Next.js, Three.js / WebGL, and Tailwind CSS. For backend & data systems, I use Node.js, Express, PostgreSQL, Prisma ORM, REST/GraphQL APIs, and cloud hosting platforms."
-  },
-  {
-    question: "How can I start a project?",
-    answer: "You can start a project by filling out the contact form below or reaching out directly via email at sampathkumarjofficial@gmail.com or WhatsApp at +91 9361091456. I will review your requirements and respond within 24 hours."
+    question: "Can you build an ERP around my existing workflow?",
+    answer: "Yes, I analyze your existing paper ledgers, spreadsheets, or legacy tools and build a custom web-based ERP platform tailored to your exact inventory, billing, and accounting procedures."
   }
 ];
 
@@ -77,7 +69,7 @@ export const FAQ: React.FC = () => {
             Custom Software & <span className="text-gradient">ERP FAQs</span>
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
-            Answers to common questions regarding custom CRM development, Jewellery ERP software, website development, and software collaboration.
+            Answers to common questions regarding custom CRM development, Jewellery ERP software, full-stack web applications, and local collaboration in Tamil Nadu.
           </p>
         </motion.div>
 
@@ -146,7 +138,7 @@ export const FAQ: React.FC = () => {
           </div>
           <h3 className="text-xl font-bold text-white">Let's Discuss Your Business Software Needs</h3>
           <p className="text-xs text-slate-300">
-            Whether you need a custom CRM, Jewellery ERP, business management system, or website development in Tamil Nadu or worldwide.
+            Whether you need a custom CRM, Jewellery ERP, business management system, or web application development in Tamil Nadu or worldwide.
           </p>
           <div>
             <a
@@ -154,7 +146,7 @@ export const FAQ: React.FC = () => {
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 transition-transform active:scale-95 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Contact me for custom software development</span>
+              <span>Contact Sampath Kumar</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>

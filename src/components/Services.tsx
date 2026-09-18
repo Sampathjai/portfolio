@@ -21,11 +21,28 @@ export const Services: React.FC = () => {
     }
   };
 
-  const ctaItems = [
-    { title: "Need a Custom CRM?", desc: "Build a lead management & sales pipeline system tailored to your exact business workflow.", linkText: "Contact me for custom CRM development" },
-    { title: "Need ERP Software?", desc: "Get an enterprise solution for inventory, GST billing, and multi-location business management.", linkText: "Explore my ERP development project" },
-    { title: "Need a Business Website?", desc: "Get a high-speed, SEO-optimized website built with React and modern responsive web standards.", linkText: "Request website development quote" },
-    { title: "Need Custom Software?", desc: "Automate complex business routines, API integrations, and daily operational tasks.", linkText: "View my CRM development projects" }
+  const getCtaText = (serviceId: string) => {
+    switch (serviceId) {
+      case 'custom-crm':
+        return 'Build My CRM';
+      case 'custom-erp':
+        return 'Build My ERP';
+      case 'jewellery-software':
+        return 'Build My Jewellery ERP';
+      case 'business-management':
+        return 'Build My Business Software';
+      case 'web-app-development':
+        return 'Build My Web App';
+      default:
+        return 'Discuss Your Project';
+    }
+  };
+
+  const ctaBlocks = [
+    { title: "Custom CRM Development in Tamil Nadu", desc: "Build a custom CRM system to manage leads, sales follow-ups, and customer workflows in one place.", linkText: "Build My CRM" },
+    { title: "Custom ERP Development in Trichy", desc: "Get a custom ERP tailored to your business operations, inventory, GST billing, and customer ledgers.", linkText: "Build My ERP" },
+    { title: "Jewellery ERP Software", desc: "Specialized ERP for gold, silver, and diamond shops with purity tracking (22K, 18K, 916) and retail billing.", linkText: "Build My Jewellery ERP" },
+    { title: "Business Management Software", desc: "Automate daily operational routines, staff assignments, task tracking, and automated client billing.", linkText: "Build My Business Software" }
   ];
 
   return (
@@ -49,19 +66,19 @@ export const Services: React.FC = () => {
             Custom <span className="text-gradient">CRM, ERP & Software Development Services</span>
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
-            Engineering custom software solutions, ERP systems, sales CRMs, and web applications tailored for businesses in Tamil Nadu and worldwide.
+            Sampath Kumar provides custom CRM development, ERP software, and web application development for businesses in Trichy, Tamil Nadu, and worldwide.
           </p>
         </motion.div>
 
-        {/* Services Grid (8 Services) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+        {/* Services Grid (7 Services) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: (index % 4) * 0.1 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: (index % 3) * 0.1 }}
               className="glass-card p-8 rounded-2xl border border-white/10 glass-card-hover flex flex-col justify-between space-y-6 relative overflow-hidden"
             >
               {service.badge && (
@@ -97,10 +114,10 @@ export const Services: React.FC = () => {
               <div className="pt-2">
                 <a
                   href="#contact"
-                  className="inline-flex items-center space-x-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 group cursor-pointer"
+                  className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-semibold text-xs border border-cyan-500/30 transition-all cursor-pointer"
                 >
-                  <span>Request Proposal for {service.title}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <span>{getCtaText(service.id)}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </motion.div>
@@ -109,7 +126,7 @@ export const Services: React.FC = () => {
 
         {/* Client Conversion CTA Blocks */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-          {ctaItems.map((item, idx) => (
+          {ctaBlocks.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -119,7 +136,7 @@ export const Services: React.FC = () => {
               className="p-6 rounded-2xl glass-card border border-white/10 flex flex-col justify-between space-y-4"
             >
               <div>
-                <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                <h4 className="text-base font-bold text-white flex items-center gap-2">
                   <MessageSquare className="w-4 h-4 text-cyan-400" />
                   {item.title}
                 </h4>
