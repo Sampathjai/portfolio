@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { ExternalLink, Github, Sparkles } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, ArrowRight } from 'lucide-react';
 
 interface ProjectCard3DProps {
   project: Project;
@@ -34,8 +34,8 @@ export const ProjectCard3D: React.FC<ProjectCard3DProps> = ({ project, onOpenDet
         <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
         {/* Category Pill Tag */}
-        <div className="absolute top-3 left-3 px-3 py-1 bg-slate-950/80 backdrop-blur-md rounded-lg text-xs font-mono text-cyan-400 border border-slate-700/80">
-          {project.category.toUpperCase()}
+        <div className="absolute top-3 left-3 px-3 py-1 bg-slate-950/80 backdrop-blur-md rounded-lg text-xs font-mono text-cyan-400 border border-slate-700/80 uppercase">
+          {project.category}
         </div>
 
         {/* Highlight metric badge if available */}
@@ -71,30 +71,30 @@ export const ProjectCard3D: React.FC<ProjectCard3DProps> = ({ project, onOpenDet
         </div>
       </div>
 
-      {/* Card Footer Action Bar - Clear Primary Actions (Fixes Issue 12) */}
+      {/* Card Footer Action Bar */}
       <div className="p-4 bg-slate-950/70 border-t border-slate-800/80 flex items-center justify-between gap-3">
         <button
+          onClick={handleCardClick}
+          className="flex-1 py-2.5 px-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs rounded-xl flex items-center justify-center space-x-1.5 shadow-md transition-all active:scale-95 cursor-pointer"
+        >
+          <span>View Case Study</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+
+        <button
           onClick={(e) => handleLinkClick(e, project.liveUrl)}
-          className="flex-1 py-2 px-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs rounded-xl flex items-center justify-center space-x-1.5 shadow-md transition-all active:scale-95 cursor-pointer"
+          className="py-2.5 px-3 bg-slate-900 hover:bg-slate-800 text-cyan-400 font-semibold text-xs rounded-xl border border-slate-800 transition-colors cursor-pointer"
+          title="Launch Live Demo"
         >
           <ExternalLink className="w-3.5 h-3.5" />
-          <span>Live Demo</span>
         </button>
 
         <button
           onClick={(e) => handleLinkClick(e, project.githubUrl)}
-          className="py-2 px-3 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs rounded-xl flex items-center justify-center space-x-1.5 border border-slate-800 transition-colors cursor-pointer"
+          className="py-2.5 px-3 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs rounded-xl border border-slate-800 transition-colors cursor-pointer"
           title="View GitHub Code"
         >
           <Github className="w-3.5 h-3.5" />
-          <span>Code</span>
-        </button>
-
-        <button
-          onClick={handleCardClick}
-          className="py-2 px-3 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-semibold text-xs rounded-xl border border-cyan-500/30 transition-colors cursor-pointer"
-        >
-          Inspect
         </button>
       </div>
     </div>

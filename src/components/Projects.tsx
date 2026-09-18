@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { PROJECTS } from '../data/portfolioData';
 import { ProjectCard3D } from './ProjectCard3D';
 import { Project } from '../types';
-import { X, ExternalLink, Github, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
-export const Projects: React.FC = () => {
+interface ProjectsProps {
+  onSelectProject?: (project: Project) => void;
+}
+
+export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
   const [filter, setFilter] = useState<'all' | 'fullstack' | '3d' | 'frontend'>('all');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = PROJECTS.filter((p) => {
     if (filter === 'all') return true;
@@ -21,11 +24,19 @@ export const Projects: React.FC = () => {
     { key: 'frontend', label: 'Agency UI & Web' },
   ];
 
+  const handleOpenDetail = (project: Project) => {
+    if (onSelectProject) {
+      onSelectProject(project);
+    } else {
+      window.location.hash = `#/projects/${project.id}`;
+    }
+  };
+
   return (
     <section id="projects" className="py-24 relative overflow-hidden bg-[#090a0f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Reliable Scroll Animation */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,13 +46,13 @@ export const Projects: React.FC = () => {
         >
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-400">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Featured Solutions</span>
+            <span>Case Studies &amp; Solutions</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Custom <span className="text-gradient">CRMs, Inventory & 3D Projects</span>
+            Featured <span className="text-gradient">Projects &amp; Case Studies</span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg">
-            Tailored business management software, real-time stock systems, and immersive WebGL applications.
+            Explore dedicated case studies for custom ERP systems, sales CRMs, and full-stack web applications.
           </p>
         </motion.div>
 
@@ -70,7 +81,7 @@ export const Projects: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Projects Grid with Staggered Scroll Animations */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, idx) => (
             <motion.div
@@ -82,109 +93,11 @@ export const Projects: React.FC = () => {
             >
               <ProjectCard3D
                 project={project}
-                onOpenDetail={(proj) => setSelectedProject(proj)}
+                onOpenDetail={handleOpenDetail}
               />
             </motion.div>
           ))}
         </div>
-
-        {/* Lightbox / Case Study Modal */}
-        <AnimatePresence>
-          {selectedProject && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
-              {/* Modal Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedProject(null)}
-                className="absolute inset-0 bg-black/80 backdrop-blur-md"
-              />
-
-              {/* Modal Card Content */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative max-w-3xl w-full glass-card rounded-2xl border border-white/20 overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col bg-[#12141d]"
-              >
-                {/* Modal Header Image */}
-                <div className="relative aspect-video bg-slate-950">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="absolute top-4 right-4 p-2 bg-slate-900/80 hover:bg-slate-800 text-white rounded-full border border-slate-700 transition-colors cursor-pointer"
-                    aria-label="Close modal"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-
-                {/* Modal Details Body */}
-                <div className="p-6 sm:p-8 space-y-6 overflow-y-auto">
-                  <div>
-                    <div className="flex items-center space-x-2 text-xs font-mono text-cyan-400 mb-2">
-                      <span className="uppercase">{selectedProject.category}</span>
-                      {selectedProject.metrics && (
-                        <span>• {selectedProject.metrics}</span>
-                      )}
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                      {selectedProject.title}
-                    </h3>
-                  </div>
-
-                  <div className="space-y-3 text-slate-300 text-sm leading-relaxed">
-                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400">Technical Overview & Architecture</h4>
-                    <p>{selectedProject.longDescription}</p>
-                  </div>
-
-                  {/* Tech Stack List */}
-                  <div className="space-y-2">
-                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tags.map((t, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-slate-800/90 text-cyan-300 rounded-lg text-xs font-mono border border-slate-700"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Modal Footer Links */}
-                  <div className="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
-                    <a
-                      href={selectedProject.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-sm rounded-xl flex items-center space-x-2 shadow-lg shadow-cyan-500/20 cursor-pointer"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span>Launch Live Demo</span>
-                    </a>
-
-                    <a
-                      href={selectedProject.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl flex items-center space-x-2 border border-slate-700 cursor-pointer"
-                    >
-                      <Github className="w-4 h-4" />
-                      <span>View GitHub Code</span>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
 
       </div>
     </section>

@@ -66,7 +66,7 @@ export const FAQ: React.FC = () => {
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Custom Software & <span className="text-gradient">ERP FAQs</span>
+            Custom Software &amp; <span className="text-gradient">ERP FAQs</span>
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
             Answers to common questions regarding custom CRM development, Jewellery ERP software, full-stack web applications, and local collaboration in Tamil Nadu.

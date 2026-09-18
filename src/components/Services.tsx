@@ -59,11 +59,11 @@ export const Services: React.FC = () => {
         >
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-400">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Full-Stack & Software Services</span>
+            <span>Full-Stack &amp; Software Services</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Custom <span className="text-gradient">CRM, ERP & Software Development Services</span>
+            Custom <span className="text-gradient">CRM, ERP &amp; Software Development Services</span>
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
             Sampath Kumar provides custom CRM development, ERP software, and web application development for businesses in Trichy, Tamil Nadu, and worldwide.
