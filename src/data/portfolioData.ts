@@ -96,9 +96,9 @@ export const PROJECTS: Project[] = [
     description: "Engineering CAD software resource portal and CRM platform providing architectural layout previews, 2D/3D blueprint assets, technical specification downloads, and lead capture.",
     longDescription: "CAD-POINT is a specialized engineering web platform designed for CAD designers, drafters, and architects. It centralizes 2D/3D blueprint asset downloads, technical specification sheets, drafting tools resources, and customer lead management pipelines.",
     tags: ["React.js", "TypeScript", "Node.js", "Railway", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
+    image: "./cad-point-crm.jpg",
     screenshots: [
-      { url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop", caption: "CAD Blueprint Download Portal & Drafting Specifications Interface" }
+      { url: "./cad-point-crm.jpg", caption: "CAD Blueprint Download Portal & Drafting Specifications Interface" }
     ],
     liveUrl: "https://cad-point-production.up.railway.app",
     githubUrl: "https://github.com/Sampathjai/CAD-POINT.git",
