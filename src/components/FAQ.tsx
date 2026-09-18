@@ -5,49 +5,48 @@ import { HelpCircle, ChevronDown, Sparkles, MessageSquare, ArrowRight } from 'lu
 interface FAQItem {
   question: string;
   answer: string;
-  category: 'crm' | 'erp' | 'web' | 'general';
 }
 
 const FAQ_ITEMS: FAQItem[] = [
   {
-    category: 'crm',
-    question: "Can you build a custom CRM software tailored specifically to my business workflow?",
-    answer: "Yes! Unlike off-the-shelf CRMs (like Salesforce or HubSpot) that charge monthly per-user fees for generic features, I engineer custom CRM platforms designed around your exact sales pipeline, lead management workflow, customer tracking rules, role-based access levels, and automated email/WhatsApp notification triggers."
+    question: "What kind of software do you build?",
+    answer: "I build custom CRM platforms, enterprise ERP systems, jewellery business management software, smart inventory tools, high-performance websites, and modern full-stack web applications tailored specifically to business requirements."
   },
   {
-    category: 'erp',
-    question: "What features are included in your Shankar Jewellery ERP software?",
-    answer: "The Shankar Jewellery ERP is a full-stack business management platform built for jewellery shop owners. Key modules include Gold, Silver, and Diamond stock itemization with custom purity values (e.g. 22K, 18K, 916), GST-compliant retail & wholesale invoice generation, customer purchase ledgers, credit tracking, and daily financial analytics dashboards."
+    question: "Can you build a custom CRM for my business?",
+    answer: "Yes! I engineer custom CRM platforms designed around your specific sales pipeline, lead management workflow, customer tracking rules, role-based team permissions, and automated email or WhatsApp notification triggers without recurring per-user SaaS fees."
   },
   {
-    category: 'erp',
-    question: "Do you build custom ERP & inventory software for other industries?",
-    answer: "Absolutely. I design and build multi-warehouse inventory management systems, stock tracking software with barcode/QR code support, supplier purchase order workflows, and real-time automated low-stock webhooks for retail, wholesale, manufacturing, and distribution businesses."
+    question: "Can you develop custom ERP software?",
+    answer: "Yes, I develop full-stack custom ERP software to unify multi-department business operations, inventory management, purchase orders, customer ledgers, and financial GST accounting into a single secure platform."
   },
   {
-    category: 'general',
-    question: "Do you work with business clients in Tamil Nadu (Trichy, Chennai, Coimbatore, Madurai, Salem)?",
-    answer: "Yes! I am based in Tamil Nadu, India, and work directly with local businesses across Trichy (Tiruchirappalli), Chennai, Coimbatore, Madurai, Salem, and neighboring regions. I offer remote consultation, virtual walkthroughs, and step-by-step team onboarding."
+    question: "Can you build software for a jewellery business?",
+    answer: "Yes! I built Shankar Jewellery ERP—a comprehensive business management system featuring gold, silver, and diamond itemization with custom purity tracking (22K, 18K, 916), GST-compliant retail & wholesale billing, customer transaction ledgers, and real-time metal rate adjustments."
   },
   {
-    category: 'general',
-    question: "Do you collaborate with international clients outside of India?",
-    answer: "Yes, I regularly collaborate with international companies, startups, and agencies across the USA, UK, Canada, Australia, UAE, and Europe. I communicate fluently in English via async messaging, GitHub, email, and scheduled video calls."
+    question: "Can you build a business management system?",
+    answer: "Yes, I build business management systems that automate operational routines, staff assignments, task tracking, automated client invoicing, and executive reporting dashboards."
   },
   {
-    category: 'web',
-    question: "What tech stack do you use for full-stack web applications and 3D web portals?",
-    answer: "For frontend & UI, I use React, TypeScript, Next.js, Three.js / React Three Fiber (for 60FPS WebGL graphics), and Tailwind CSS. For backend & data architecture, I build with Node.js, Express, PostgreSQL, Supabase, Prisma ORM, and REST/GraphQL APIs."
+    question: "Can you build a website for my business?",
+    answer: "Yes, I design and develop custom, fast, and SEO-optimized websites built with React, HTML5, Tailwind CSS, and TypeScript. All websites are mobile-responsive, structured with technical SEO, and optimized for high conversion."
   },
   {
-    category: 'web',
-    question: "Why should my business choose custom software over ready-made SaaS subscriptions?",
-    answer: "Custom software is a one-time capital investment that you own 100%. There are no recurring per-user monthly subscription fees. You get a system that matches your business process 100%, without bloated features, security risks of shared multi-tenant SaaS, or forced platform migrations."
+    question: "Do you work with businesses in Tamil Nadu?",
+    answer: "Yes! I am based in Tamil Nadu, India, and work directly with businesses across Trichy (Tiruchirappalli), Chennai, Coimbatore, Madurai, Salem, and nearby regions. I provide remote consultations, system walkthroughs, and team onboarding."
   },
   {
-    category: 'general',
-    question: "How do I initiate a software development contract or get a project quote?",
-    answer: "Simply scroll down to the Contact section on this portfolio, select your required service (Custom CRM, Jewellery ERP, Inventory System, 3D Web App, or Web Architecture), select your budget range, and describe your project goals. You will receive a response within 24 business hours."
+    question: "Do you work with clients outside India?",
+    answer: "Yes, I regularly collaborate with international businesses, startups, and agencies across the USA, UK, Canada, Australia, UAE, and Europe via async communication, GitHub, email, and scheduled video calls."
+  },
+  {
+    question: "What technologies do you use?",
+    answer: "For frontend & web UI, I use React, TypeScript, Next.js, Three.js / WebGL, and Tailwind CSS. For backend & data systems, I use Node.js, Express, PostgreSQL, Prisma ORM, REST/GraphQL APIs, and cloud hosting platforms."
+  },
+  {
+    question: "How can I start a project?",
+    answer: "You can start a project by filling out the contact form below or reaching out directly via email at sampathkumarjofficial@gmail.com or WhatsApp at +91 9361091456. I will review your requirements and respond within 24 hours."
   }
 ];
 
@@ -78,7 +77,7 @@ export const FAQ: React.FC = () => {
             Custom Software & <span className="text-gradient">ERP FAQs</span>
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
-            Answers to common questions regarding custom CRM development, Jewellery ERP software, full-stack web applications, and remote collaboration.
+            Answers to common questions regarding custom CRM development, Jewellery ERP software, website development, and software collaboration.
           </p>
         </motion.div>
 
@@ -92,7 +91,7 @@ export const FAQ: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
                 className="glass-card rounded-2xl border border-white/10 overflow-hidden transition-colors"
               >
                 <button
@@ -147,7 +146,7 @@ export const FAQ: React.FC = () => {
           </div>
           <h3 className="text-xl font-bold text-white">Let's Discuss Your Business Software Needs</h3>
           <p className="text-xs text-slate-300">
-            Whether you need a full enterprise Jewellery ERP, a custom sales CRM, or a high-performance web app, I'm available to help.
+            Whether you need a custom CRM, Jewellery ERP, business management system, or website development in Tamil Nadu or worldwide.
           </p>
           <div>
             <a
@@ -155,7 +154,7 @@ export const FAQ: React.FC = () => {
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 transition-transform active:scale-95 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Request Free Software Consultation</span>
+              <span>Contact me for custom software development</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -165,4 +164,3 @@ export const FAQ: React.FC = () => {
     </section>
   );
 };
-

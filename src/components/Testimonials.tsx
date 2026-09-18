@@ -6,6 +6,10 @@ import { TESTIMONIALS } from '../data/portfolioData';
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  if (!TESTIMONIALS || TESTIMONIALS.length === 0) {
+    return null;
+  }
+
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
   };
@@ -80,7 +84,7 @@ export const Testimonials: React.FC = () => {
             {/* Slider Controls */}
             <div className="flex items-center justify-between pt-8 mt-6 border-t border-slate-800/60">
               <div className="flex space-x-2">
-                {TESTIMONIALS.map((_, idx) => (
+                {TESTIMONIALS.map((_: any, idx: number) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
@@ -117,4 +121,3 @@ export const Testimonials: React.FC = () => {
     </section>
   );
 };
-

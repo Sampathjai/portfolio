@@ -386,24 +386,36 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
               <span>{PERSONAL_INFO.status}</span>
             </div>
 
-            {/* Main Headline - High Contrast */}
+            {/* Main Headline - High Contrast H1 */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-              Building <span className="text-gradient">3D Web Apps</span>, Custom CRMs & Inventory Systems.
+              Custom <span className="text-gradient">CRM, ERP</span> & Web Application Developer
             </h1>
 
-            {/* Sub-headline */}
+            {/* Supporting Content */}
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-              Hi, I'm <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong>. I engineer high-performing 3D WebGL experiences and custom software—including tailored CRMs and real-time inventory management platforms.
+              I build custom CRM, ERP, business management software and modern websites tailored to business requirements.
             </p>
 
-            {/* Primary & Secondary Action Buttons (Fixes Issue 4 & 10) */}
+            {/* Positioning Statement */}
+            <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
+              <strong>Sampath Kumar</strong> is a freelance full-stack developer building custom CRM, ERP, business management software, websites, and web applications for businesses in Tamil Nadu, India, and worldwide.
+            </p>
+
+            {/* CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
-                href="#projects"
+                href="#contact"
                 className="group px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 flex items-center space-x-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <span>Explore Projects & CRMs</span>
+                <span>Start Your Project</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href="#projects"
+                className="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 font-semibold text-sm backdrop-blur-md flex items-center space-x-2 transition-all hover:border-slate-500 cursor-pointer"
+              >
+                <span>View My Projects</span>
               </a>
 
               <a
@@ -411,7 +423,7 @@ export const Hero3D: React.FC<Hero3DProps> = ({ reducedMotion }) => {
                 className="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 font-semibold text-sm backdrop-blur-md flex items-center space-x-2 transition-all hover:border-slate-500 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 text-cyan-400" />
-                <span>Discuss Your Project</span>
+                <span>Contact Me</span>
               </a>
             </div>
 

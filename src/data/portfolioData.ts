@@ -1,33 +1,32 @@
-import { Project, Service, Testimonial, ProcessStep } from '../types';
+import { Project, Service, ProcessStep } from '../types';
 
 export const PERSONAL_INFO = {
-  name: "Sampath Kumar J",
-  title: "Senior Web & 3D Interactive Developer",
-  tagline: "Building Immersive 3D WebGL Experiences, Custom Business CRMs & Real-Time Inventory Management Systems.",
-  bio: "I'm a senior Web & Frontend Developer who helps businesses grow by building high-converting 3D web experiences alongside powerful custom software solutions—including tailored CRMs, real-time inventory management platforms, and interactive React web applications.",
-  location: "India (Available Worldwide for Remote Contracts)",
+  name: "Sampath Kumar",
+  title: "Freelance Full-Stack & 3D Interactive Developer",
+  tagline: "Custom CRM, ERP & Web Application Developer",
+  bio: "Sampath Kumar is a freelance full-stack developer building custom CRM, ERP, business management software, websites, and web applications for businesses in Tamil Nadu, India, and worldwide.",
+  location: "Trichy (Tiruchirappalli), Tamil Nadu, India (Available Worldwide)",
   email: "sampathkumarjofficial@gmail.com",
-
   phone: "+91 9361091456",
   whatsapp: "https://wa.me/919361091456",
   linkedin: "https://www.linkedin.com/in/sampath-kumar1/",
   github: "https://github.com/Sampathjai",
   instagram: "https://www.instagram.com/itz_sampath__/",
   twitter: "https://x.com/sampath09917883",
-  status: "Available for Q3/Q4 Freelance Projects & Custom Web Contracts",
+  status: "Available for Custom CRM, ERP & Freelance Web Projects",
   stats: [
     { label: "Years Experience", value: "3+" },
-    { label: "Web Applications", value: "30+" },
+    { label: "Web & Software Apps", value: "30+" },
     { label: "Client Satisfaction", value: "100%" },
-    { label: "Lighthouse Performance", value: "98+" }
+    { label: "Lighthouse Score", value: "98+" }
   ],
   skills: [
-    { name: "Three.js / React Three Fiber / WebGL", level: 92 },
-    { name: "React, TypeScript & Next.js Architecture", level: 96 },
-    { name: "Custom Business CRMs & Lead Pipelines", level: 94 },
-    { name: "Real-Time Inventory & Warehouse Systems", level: 92 },
-    { name: "Map Integration (Mapbox GL & Leaflet)", level: 92 },
-    { name: "Tailwind CSS, Framer Motion & Scroll FX", level: 95 }
+    { name: "Custom Business CRMs & Lead Pipelines", level: 96 },
+    { name: "Enterprise ERP & Inventory Software", level: 94 },
+    { name: "React, TypeScript & Node.js Architecture", level: 96 },
+    { name: "PostgreSQL & Database Systems", level: 92 },
+    { name: "3D WebGL (Three.js & React Three Fiber)", level: 90 },
+    { name: "Tailwind CSS & Responsive UI Design", level: 95 }
   ]
 };
 
@@ -36,20 +35,31 @@ export const PROJECTS: Project[] = [
     id: "shankar-jewellery-erp",
     title: "Shankar Jewellery ERP - Business Management System",
     category: "fullstack",
-    description: "Full-stack jewellery business ERP designed to simplify gold/silver inventory management, retail & wholesale GST billing, customer ledgers, and sales analytics.",
-    longDescription: "Shankar Jewellery ERP is a comprehensive full-stack business management platform built for jewellery shops. It centralizes inventory management for Gold, Silver, and Diamond items with custom purity values, streamlines GST invoice generation for retail and wholesale transactions, manages customer ledgers, and tracks credit/payments with real-time financial reporting.",
+    description: "Full-stack jewellery business management system designed to simplify gold/silver inventory management, retail & wholesale GST billing, customer ledgers, and sales analytics.",
+    longDescription: "Shankar Jewellery ERP is a comprehensive full-stack business management platform built specifically for jewellery retail and wholesale operations. It centralizes inventory tracking for Gold, Silver, and Diamond items with custom purity configurations (22K, 18K, 916), streamlines GST invoice generation, manages customer credit ledgers, and provides real-time financial reporting.",
     tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
     image: "./shankar-jewellery-erp.jpg",
     liveUrl: "https://shankar-jewellery-erp.vercel.app/",
-
     githubUrl: "https://github.com/Sampathjai/Jewellery-ERP",
     featured: true,
     metrics: "Gold & Silver GST Billing ERP"
   },
   {
+    id: "cad-point",
+    title: "CAD-POINT - Engineering CAD & Drafting CRM Portal",
+    category: "fullstack",
+    description: "Engineering CAD software resource portal and CRM platform providing architectural layout previews, 2D/3D blueprint assets, technical specification downloads, and lead capture.",
+    longDescription: "CAD-POINT is a specialized web platform for engineering CAD designers and architects. Features structured blueprint asset categorization, downloadable technical files, lead management pipelines, technical spec sheets, and responsive drafting tools UI.",
+    tags: ["React", "TypeScript", "Node.js", "Railway", "Tailwind CSS"],
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
+    liveUrl: "https://cad-point-production.up.railway.app",
+    githubUrl: "https://github.com/Sampathjai/CAD-POINT.git",
+    featured: true,
+    metrics: "Used by Engineering Designers"
+  },
+  {
     id: "travelroute-buddy",
     title: "TravelRoute Buddy - Trip & Route Planner",
-
     category: "frontend",
     description: "Interactive travel itinerary & route optimization web application featuring Mapbox GL maps, real-time location planning, and custom travel schedules.",
     longDescription: "Engineered an intuitive travel route planner allowing users to plot custom trips, visualize interactive map routes with Mapbox GL, customize daily itineraries, and export travel schedules across mobile and desktop devices.",
@@ -59,21 +69,6 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Sampathjai",
     featured: true,
     metrics: "Mapbox GL Route Optimization"
-  },
-  {
-    id: "cad-point",
-    title: "CAD-POINT - Engineering CAD & Drafting Portal",
-    category: "fullstack",
-    description: "Engineering CAD software resource and design drafting portal providing architectural layout previews, 2D/3D blueprint assets, and CAD tooling resources.",
-    longDescription: "Developed a specialized engineering web platform for CAD designers and architects. Features structured blueprint categorization, file resource downloads, technical spec sheets, and responsive drafting tools UI.",
-    tags: ["React", "TypeScript", "CAD Tools", "Architectural UI", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
-    liveUrl: "https://cad-point-production.up.railway.app",
-    githubUrl: "https://github.com/Sampathjai/CAD-POINT.git",
-
-
-    featured: true,
-    metrics: "Used by Engineering Designers"
   },
   {
     id: "ride-together",
@@ -100,111 +95,107 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Sampathjai",
     featured: true,
     metrics: "Direct WhatsApp Order Conversions"
-  },
-  {
-    id: "omni-crm",
-    title: "OmniCRM - Custom Business CRM Platform",
-    category: "fullstack",
-    description: "All-in-one business CRM featuring pipeline management, lead scoring, automated email workflows, and client portals.",
-    longDescription: "Engineered a custom enterprise CRM system allowing sales teams to track deals across stages, automate customer follow-ups, schedule meetings, and generate real-time revenue analytics dashboards with custom role-based permissions.",
-    tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-    liveUrl: "https://sampathjai.github.io/Frontend/",
-    githubUrl: "https://github.com/Sampathjai",
-    featured: true,
-    metrics: "3.5x Faster Deal Closing Rate"
-  },
-  {
-    id: "stock-sync-inventory",
-    title: "StockSync - Smart Inventory & Warehouse System",
-    category: "fullstack",
-    description: "Real-time multi-warehouse inventory tracker with barcode scanning support, automated reorder thresholds, and supplier logs.",
-    longDescription: "A comprehensive inventory management system built to eliminate stockouts and overstocking. Features real-time stock sync across multiple fulfillment locations, purchase order creation, batch/lot tracking, and automated stock alert webhooks.",
-    tags: ["React", "TypeScript", "Node.js", "WebSockets", "Chart.js"],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop",
-    liveUrl: "https://sampathjai.github.io/Frontend/",
-    githubUrl: "https://github.com/Sampathjai",
-    featured: false,
-    metrics: "Zero Stockout Overhead Reported"
-  },
-  {
-    id: "3d-configurator",
-    title: "3D Product Configurator & E-Commerce CRM",
-    category: "3d",
-    description: "Real-time WebGL 3D product visualizer seamlessly connected to live inventory stock levels and CRM lead capture.",
-    longDescription: "Combines 60 FPS 3D WebGL rendering with e-commerce inventory sync. When users customize products, real-time stock availability is verified instantly and lead data is submitted directly to the client's custom CRM.",
-    tags: ["React Three Fiber", "Three.js", "TypeScript", "Inventory API"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
-    liveUrl: "https://sampathjai.github.io/Frontend/",
-    githubUrl: "https://github.com/Sampathjai",
-    featured: false,
-    metrics: "+42% Conversion Rate Increase"
   }
 ];
 
 export const SERVICES: Service[] = [
   {
-    id: "jewellery-erp",
-    iconName: "Database",
-    title: "Jewellery & Enterprise ERP Systems",
-    description: "Full-stack ERP solutions built for jewellery retail, wholesale, and business operations to centralize stock, billing, and accounting.",
-    features: [
-      "Gold, Silver & Diamond Itemization & Purity Tracking",
-      "GST Compliant Retail & Wholesale Invoicing",
-      "Customer Ledgers, Credit & Payment History",
-      "Real-time Daily Sales & Inventory Analytics"
-    ],
-    badge: "Enterprise ERP"
-  },
-  {
-    id: "3d-web",
-
-    iconName: "Box",
-    title: "3D & Interactive Web Experiences",
-    description: "Transform plain websites into memorable, immersive 3D digital experiences using Three.js and WebGL shaders.",
-    features: [
-      "Interactive 3D Hero Scenes & Canvas Effects",
-      "WebGL Shader Animations & Particle Systems",
-      "GLTF / GLB Model Optimization & Draco Compression",
-      "Smooth Scroll Parallax & Physics Simulations"
-    ],
-    badge: "Highest Impact"
-  },
-  {
-    id: "crm-systems",
+    id: "custom-crm",
     iconName: "Layout",
-    title: "Custom CRM Business Software",
-    description: "Tailor-made CRM platforms designed for your specific business workflow, client tracking, and automated sales pipelines.",
+    title: "Custom CRM Development",
+    description: "Tailor-made CRM platforms engineered around your exact sales pipeline, lead management rules, customer tracking, and automated email/WhatsApp alerts.",
     features: [
-      "Custom Lead & Client Management Pipelines",
-      "Automated Email & WhatsApp Notification Triggers",
-      "Role-Based Access Control & Team Collaboration",
-      "Executive Revenue Analytics & Reporting Dashboards"
+      "Custom Lead & Customer Pipeline Management",
+      "Automated Email & WhatsApp Triggers",
+      "Role-Based Team Access Control & Security",
+      "Executive Sales & Revenue Dashboards"
     ],
-    badge: "High ROI Solution"
+    badge: "High Conversion"
   },
   {
-    id: "inventory-mgmt",
-    iconName: "Zap",
-    title: "Inventory & Warehouse Management",
-    description: "Real-time stock tracking systems that prevent stockouts, automate purchase orders, and sync multi-location inventory.",
+    id: "custom-erp",
+    iconName: "Database",
+    title: "Custom ERP Development",
+    description: "Full-stack enterprise resource planning (ERP) software that unifies multi-department business operations, inventory, order processing, and accounting.",
     features: [
-      "Multi-Warehouse Real-Time Stock Tracking",
-      "Low-Stock Automated Alerts & Supplier Workflows",
-      "Barcode & QR Code Scanner Integration",
-      "Sales & Stock Analytics Visualization"
+      "Multi-Department Resource & Workflow Control",
+      "Real-Time Purchase Order & Stock Synchronization",
+      "Financial Ledger & GST Accounting Integration",
+      "Custom Business Reporting & Audit Logs"
+    ],
+    badge: "Enterprise Grade"
+  },
+  {
+    id: "business-management",
+    iconName: "Zap",
+    title: "Business Management Software",
+    description: "Custom management software designed to automate daily operational routines, staff assignments, task tracking, and client billing.",
+    features: [
+      "Operational Task & Workflow Automation",
+      "Staff Assignment & Time Log Dashboards",
+      "Automated Invoice Generation & Payment Tracking",
+      "Centralized Business Analytics & Reports"
     ]
   },
   {
-    id: "frontend-arch",
+    id: "jewellery-software",
     iconName: "Sparkles",
-    title: "Frontend Architecture & Web Applications",
-    description: "Production-ready, scalable React & TypeScript web applications engineered for performance and clean maintainability.",
+    title: "Jewellery Business Software",
+    description: "Specialized ERP and point-of-sale software for jewellery retail and wholesale shops to itemize gold, silver, and diamond stock with custom purity tracking.",
     features: [
-      "Custom Design System & Component Library",
-      "Map Integration (Mapbox GL & Leaflet)",
-      "Lighthouse Score 95+ Optimization",
-      "Responsive Layouts across all Screen Sizes"
+      "Gold, Silver & Diamond Itemization & Purity (22K, 18K, 916)",
+      "GST-Compliant Retail & Wholesale Invoice Generation",
+      "Customer Credit Ledgers & Scheme Payment Tracking",
+      "Real-Time Metal Rate Adjustment & Stock Alerts"
+    ],
+    badge: "Specialized Solution"
+  },
+  {
+    id: "website-development",
+    iconName: "Layout",
+    title: "Website Development",
+    description: "High-performance, SEO-optimized business websites engineered with modern HTML5, Tailwind CSS, React, and interactive UI components.",
+    features: [
+      "Mobile Responsive & Pixel-Perfect Layouts",
+      "Speed Optimized for 95+ Google Lighthouse Scores",
+      "On-Page Technical SEO & Schema Markup",
+      "Contact Lead Capture & WhatsApp Integration"
+    ]
+  },
+  {
+    id: "web-app-development",
+    iconName: "Box",
+    title: "Web Application Development",
+    description: "Scalable, feature-rich web applications built with React, TypeScript, Node.js, and secure REST/GraphQL API backends.",
+    features: [
+      "Dynamic Dashboard & Admin Panel Interfaces",
+      "Real-Time Data Updates & Webhook Integrations",
+      "Secure User Authentication & Session Management",
+      "Cross-Platform Browser & Mobile Compatibility"
+    ]
+  },
+  {
+    id: "fullstack-development",
+    iconName: "Database",
+    title: "Full-Stack Development",
+    description: "End-to-end full-stack software development from relational database architecture (PostgreSQL, MySQL) to polished frontend web applications.",
+    features: [
+      "Database Schema Design & Query Optimization",
+      "Robust REST & GraphQL API Endpoints",
+      "Typesafe React & TypeScript Frontend Architecture",
+      "Cloud Deployment & Continuous Integration"
+    ]
+  },
+  {
+    id: "business-automation",
+    iconName: "Zap",
+    title: "Business Automation Solutions",
+    description: "Automate repetitive business processes, data entry, notification alerts, and third-party API integrations to save time and prevent manual errors.",
+    features: [
+      "Automated WhatsApp & Email Customer Follow-ups",
+      "Third-Party API Integration (Payment, SMS, CRM)",
+      "Automated Data Export & Inventory Sync Rules",
+      "Error-Free Workflow Pipeline Automation"
     ]
   }
 ];
@@ -213,27 +204,28 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: "01",
     title: "Requirement Audit",
-    description: "We map out your business workflow, CRM requirements, inventory logic, and 3D visual goals.",
+    description: "We map out your business workflow, CRM requirements, inventory logic, and software goals.",
     details: ["Workflow Architecture Mapping", "Database & API Schema Design", "Project Timeline & Scope"]
   },
   {
     step: "02",
     title: "UI & System Prototyping",
-    description: "I design interactive CRM wireframes, inventory dashboards, and 3D proof-of-concept models.",
-    details: ["Interactive Dashboard Wireframes", "Three.js / WebGL Proof of Concept", "Role-Based Access Specs"]
+    description: "I design interactive CRM wireframes, ERP dashboards, and full-stack software prototypes.",
+    details: ["Interactive Dashboard Wireframes", "Database & Role Permission Specs", "Proof-of-Concept Prototype"]
   },
   {
     step: "03",
-    title: "Frontend Development & Motion",
-    description: "Writing clean, typed modular code with scroll animations, real-time database sync, and 3D shaders.",
-    details: ["TypeScript + React Engineering", "Database & Webhook Setup", "Framer Motion Scroll Effects"]
+    title: "Full-Stack Development",
+    description: "Writing clean, typed modular code with real-time database sync, API endpoints, and responsive UI components.",
+    details: ["TypeScript + React Engineering", "Node.js & PostgreSQL Backend", "Security & Role Access Controls"]
   },
   {
     step: "04",
     title: "Deployment & Training",
-    description: "Deployment to Vercel/Netlify/AWS with database backups, domain setup, and team walkthrough.",
-    details: ["Production Build & CDN Optimization", "Team Onboarding & Documentation", "Post-Launch Maintenance Support"]
+    description: "Production deployment with database backups, custom domain configuration, and step-by-step team walkthrough.",
+    details: ["Production Build & Server Deployment", "Team Onboarding & Walkthrough", "Post-Launch Maintenance Support"]
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [];
+export const TESTIMONIALS: any[] = [];
+

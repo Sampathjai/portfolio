@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Layout, Sparkles, Zap, CheckCircle2, ArrowRight, Database } from 'lucide-react';
+import { Box, Layout, Sparkles, Zap, CheckCircle2, ArrowRight, Database, MessageSquare } from 'lucide-react';
 import { SERVICES } from '../data/portfolioData';
 
 export const Services: React.FC = () => {
@@ -21,12 +21,18 @@ export const Services: React.FC = () => {
     }
   };
 
+  const ctaItems = [
+    { title: "Need a Custom CRM?", desc: "Build a lead management & sales pipeline system tailored to your exact business workflow.", linkText: "Contact me for custom CRM development" },
+    { title: "Need ERP Software?", desc: "Get an enterprise solution for inventory, GST billing, and multi-location business management.", linkText: "Explore my ERP development project" },
+    { title: "Need a Business Website?", desc: "Get a high-speed, SEO-optimized website built with React and modern responsive web standards.", linkText: "Request website development quote" },
+    { title: "Need Custom Software?", desc: "Automate complex business routines, API integrations, and daily operational tasks.", linkText: "View my CRM development projects" }
+  ];
 
   return (
     <section id="services" className="py-24 relative overflow-hidden bg-slate-950/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Title with Scroll Animation */}
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,29 +42,28 @@ export const Services: React.FC = () => {
         >
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-400">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Web & 3D Engineering</span>
+            <span>Full-Stack & Software Services</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Custom <span className="text-gradient">Business Software & Services</span>
+            Custom <span className="text-gradient">CRM, ERP & Software Development Services</span>
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
-            Engineering custom CRMs, smart inventory platforms, and high-impact 3D web applications.
+          <p className="text-slate-300 text-base sm:text-lg">
+            Engineering custom software solutions, ERP systems, sales CRMs, and web applications tailored for businesses in Tamil Nadu and worldwide.
           </p>
         </motion.div>
 
-        {/* Services Grid with Staggered Scroll Motion */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Services Grid (8 Services) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.1 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: (index % 4) * 0.1 }}
               className="glass-card p-8 rounded-2xl border border-white/10 glass-card-hover flex flex-col justify-between space-y-6 relative overflow-hidden"
             >
-              {/* Optional Highlight Badge */}
               {service.badge && (
                 <div className="absolute top-6 right-6 px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[10px] uppercase font-mono font-bold rounded-full">
                   {service.badge}
@@ -74,7 +79,7 @@ export const Services: React.FC = () => {
                   {service.title}
                 </h3>
 
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-300 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -98,6 +103,37 @@ export const Services: React.FC = () => {
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Client Conversion CTA Blocks */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+          {ctaItems.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="p-6 rounded-2xl glass-card border border-white/10 flex flex-col justify-between space-y-4"
+            >
+              <div>
+                <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                  <MessageSquare className="w-4 h-4 text-cyan-400" />
+                  {item.title}
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+              <a
+                href="#contact"
+                className="inline-flex items-center space-x-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 cursor-pointer"
+              >
+                <span>{item.linkText}</span>
+                <ArrowRight className="w-3 h-3" />
+              </a>
             </motion.div>
           ))}
         </div>
